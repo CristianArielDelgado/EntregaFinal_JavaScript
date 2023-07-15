@@ -1,0 +1,47 @@
+:root{
+    --header: #A1CCD1;
+    --main: #F4F2DE;
+    --pink: pink;
+}
+/* General - Reset */
+html {
+    background-color: #F4E0B9;
+    font-size: 62.5%;
+}
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+a {
+    text-decoration: none;
+}
+ul {
+    list-style-type: none;
+}
+.header{
+    background-color: var(--header);
+    height: auto;
+    text-align: center;
+    max-width: 120rem;
+    margin: 0 auto;   
+}
+.main{
+    width: auto;
+    height: 20vh;
+    background-color: var(--main);
+    text-align: center;
+    max-width: 120rem;
+    margin: 0 auto;   
+}
+.footer {
+    height: 3vh;
+    background-color: var(--pink);
+    text-align: center;
+    margin: 0 auto;
+    font-size: auto;
+    max-width: 120rem;
+    margin: 0 auto;
+}

@@ -78,7 +78,7 @@ html{font-size: 62.5%;}*{padding: 0px;margin: 0px;box-sizing: border-box;font-fa
     border-radius: 50%;
 }
 
-/*                  main__container-articulos no lo puse arriba de todo como widht 1200px                */
+/*                  cards                */
 
 .main__container-articulos_cards{
     display: grid;
@@ -87,6 +87,7 @@ html{font-size: 62.5%;}*{padding: 0px;margin: 0px;box-sizing: border-box;font-fa
     justify-items: center;
     align-items: center;
     padding: 1rem;
+    box-shadow: 0 0 10px coral;
 }
 .card__descuentos{
     background-color: var(--colorFondoDescuento);
@@ -99,8 +100,10 @@ html{font-size: 62.5%;}*{padding: 0px;margin: 0px;box-sizing: border-box;font-fa
     display: flex;
     text-align: right;
     position: absolute;
+    box-shadow: 0 0 20px red;
 }
 .btn{
     font-size: 1.5rem;
     font-size: bold;
+    box-shadow: 10px 10px 10px coral;
 }

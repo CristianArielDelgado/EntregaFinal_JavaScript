@@ -19,6 +19,15 @@ const validarProducto = (id) =>{
         mostrarProductoCarrito(producto)
     }else{
         // si el producto esta repetido viene al else y  agrega la cantidad nomas
+        const producto = carrito.find(producto => producto.id == id)
+        const cantidad = document.getElementById(`cantidad${producto.id}`)
+        const precio = document.getElementById(`precio${producto.id}`)
+
+        producto.cantidad++
+        producto.precio= producto.precioBase * producto.cantidad
+
+        cantidad.innerText=`Cantidad: ${producto.cantidad}`
+        precio.innerText=`$ ${producto.precio}\t\t`
     }
 }
 
@@ -26,20 +35,18 @@ const validarProducto = (id) =>{
 const mostrarProductoCarrito = (producto) =>{
     const contenedor = document.getElementById('carrito-contenedor')
     const div = document.createElement('div')
-    div.classList.add('productoEnCarrito')  //le agregamos la clase para el CSS
+    producto.precioBase = producto.precio
+    div.classList.add('productoEnCarrito')
 
     div.innerHTML=`
     <p style="white-space: pre"> ${producto.articulo}\t\t</p>
-    <p style="white-space: pre">$ ${producto.precio}\t\t</p>
+    <p style="white-space: pre" id=precio${producto.id}>$ ${producto.precio}\t\t</p>
     <p style="white-space: pre">Aplica Descuento: ${producto.descuento * 100}%\t\t  </p>
     <p style="white-space: pre" id=cantidad${producto.id}>Cantidad: ${producto.cantidad}\t\t</p>
     <button class="btn waves-effect waves-ligth boton-eliminar" value="${producto.id}">X</button>
     `
     contenedor.appendChild(div)
 }
-
-
-
 
 
 

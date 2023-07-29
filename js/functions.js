@@ -11,8 +11,6 @@ btnAgregar.forEach((btn) => {
 const actualizarContador = () => {
   cantidadComprar.innerText = contador
 };
-
-
 /* Obtener ID del producto */
 const obtenerID = document.querySelectorAll('.btn.btn-success');
 obtenerID.forEach((boton) => {

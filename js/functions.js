@@ -23,17 +23,3 @@ obtenerID.forEach((boton) => {
         console.log(idArticulo)
     })
 });
-
-
-
-/* Función para encontrar el precio del artículo */
-// const precioArticulo = (id) => {
-//   const articuloEncontrado = productos.find((producto) => articulo.id === idArt);
-
-//   if (articuloEncontrado) {
-//       console.log("Precio del artículo:", articuloEncontrado.precio);
-//   } else {
-//       console.log("Artículo no encontrado.");
-//   }
-// };
-

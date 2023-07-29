@@ -1,5 +1,4 @@
 let carrito = []
-
 const productoElegido = document.getElementsByClassName("card")
 
 for (let i=0; i<productoElegido.length; i++){
@@ -29,6 +28,9 @@ const validarProducto = (id) =>{
         cantidad.innerText=`Cantidad: ${producto.cantidad}`
         precio.innerText=`$ ${producto.precio}\t\t`
     }
+    const precioTotalCarrito = calcularPrecioTotal();
+    const precioTotalElemento = document.getElementById('precioTotal');
+    precioTotalElemento.innerText = `Precio total: $${precioTotalCarrito}`;
 }
 
 /* Funcion que muestra el producto en el carrito */
@@ -48,11 +50,11 @@ const mostrarProductoCarrito = (producto) =>{
     contenedor.appendChild(div)
 }
 
-
-
-
-
-/*
-ESTO ME SIRVE PARA EL STOCK Y DEMAS !!!!!!!!!!!!!! BUSCA EN EL ARRAY PRODUCTOS
-const producto = productos.find(producto =>producto.id== id ) //voy a recorrer el array productos de stock.js
-*/
+/* Calculamos el total a pagar */
+const calcularPrecioTotal = () => {
+    let totalPagar = 0;
+    for (let i = 0; i < carrito.length; i++) {
+      totalPagar += carrito[i].precioBase * carrito[i].cantidad;
+    }
+    return totalPagar;
+};

@@ -30,7 +30,7 @@ const validarProducto = (id) =>{
     }
     const precioTotalCarrito = calcularPrecioTotal();
     const precioTotalElemento = document.getElementById('precioTotal');
-    precioTotalElemento.innerText = `Precio total: $${precioTotalCarrito}`;
+    precioTotalElemento.innerText = `${precioTotalCarrito}`;
 }
 
 /* Funcion que muestra el producto en el carrito */
@@ -52,9 +52,31 @@ const mostrarProductoCarrito = (producto) =>{
 
 /* Calculamos el total a pagar */
 const calcularPrecioTotal = () => {
-    let totalPagar = 0;
+    let totalPagar = 0
     for (let i = 0; i < carrito.length; i++) {
-      totalPagar += carrito[i].precioBase * carrito[i].cantidad;
+      totalPagar += carrito[i].precioBase * carrito[i].cantidad
     }
-    return totalPagar;
+    return totalPagar
+};
+
+
+
+const btnVaciarCarrito = document.getElementById('btn-vaciar-carrito');
+btnVaciarCarrito.addEventListener('click', () => {
+    vaciarCarrito()
+});
+// Función para vaciar el carrito
+const vaciarCarrito = () => {
+    carrito = []
+    const contenedorCarrito = document.getElementById('carrito-contenedor')
+    contenedorCarrito.innerHTML = '';
+    actualizarPrecioTotal()
+    contador = 0
+    actualizarContador()
+}
+// Función para actualizar el precio total a pagar
+const actualizarPrecioTotal = () => {
+    const precioTotalCarrito = calcularPrecioTotal()
+    const precioTotalElemento = document.getElementById('precioTotal')
+    precioTotalElemento.innerText = `${precioTotalCarrito}`
 };

@@ -6,7 +6,8 @@ const productos =
         "precio": 21510,
         "stock": 5,
         "descuento": 0.20,
-        "cantidad": 1
+        "cantidad": 1,
+        "imagen": "../assets/images/mercaderia/articulo_1.png"
     },
 
     {
@@ -15,7 +16,8 @@ const productos =
         "precio": 28920,
         "stock": 2,
         "descuento": 0,
-        "cantidad": 1
+        "cantidad": 1,
+        "imagen": "../assets/images/mercaderia/articulo_2.png"
     },
 
     {
@@ -24,7 +26,8 @@ const productos =
         "precio": 19000,
         "stock": 0,
         "descuento": 0,
-        "cantidad": 1
+        "cantidad": 1,
+        "imagen": "../assets/images/mercaderia/articulo_3.png"
     },
 
     {
@@ -33,7 +36,8 @@ const productos =
         "precio": 35400,
         "stock": 4,
         "descuento": 0,
-        "cantidad": 1
+        "cantidad": 1,
+        "imagen": "../assets/images/mercaderia/articulo_4.png"
     },
 
     {
@@ -42,7 +46,8 @@ const productos =
         "precio": 24000,
         "stock": 8,
         "descuento": 0.15,
-        "cantidad": 1
+        "cantidad": 1,
+        "imagen": "../assets/images/mercaderia/articulo_5.png"
     },
 
     {
@@ -51,7 +56,8 @@ const productos =
         "precio": 33500,
         "stock": 10,
         "descuento": 0,
-        "cantidad": 1
+        "cantidad": 1,
+        "imagen": "../assets/images/mercaderia/articulo_6.png"
     },
 
     {
@@ -60,7 +66,8 @@ const productos =
         "precio": 75800,
         "stock": 1,
         "descuento": 0.10,
-        "cantidad": 1
+        "cantidad": 1,
+        "imagen": "../assets/images/mercaderia/articulo_7.png"
     },
 
     {
@@ -69,7 +76,8 @@ const productos =
         "precio": 81000,
         "stock": 15,
         "descuento": 0,
-        "cantidad": 1
+        "cantidad": 1,
+        "imagen": "../assets/images/mercaderia/articulo_8.png"
     },
 
     {
@@ -78,6 +86,7 @@ const productos =
         "precio": 19000,
         "stock": 3,
         "descuento": 0,
-    "cantidad": 1
+    "cantidad": 1,
+    "imagen": "../assets/images/mercaderia/articulo_9.png"
     }
 ]

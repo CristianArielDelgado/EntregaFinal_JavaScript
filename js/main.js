@@ -1,276 +1,138 @@
-// PRODUCTOS
-const productos = [
-    // Abrigos
-    {
-        id: "abrigo-01",
-        titulo: "Abrigo 01",
-        imagen: "./img/abrigos/01.jpg",
-        categoria: {
-            nombre: "Abrigos",
-            id: "abrigos"
-        },
-        precio: 1000
-    },
-    {
-        id: "abrigo-02",
-        titulo: "Abrigo 02",
-        imagen: "./img/abrigos/02.jpg",
-        categoria: {
-            nombre: "Abrigos",
-            id: "abrigos"
-        },
-        precio: 1000
-    },
-    {
-        id: "abrigo-03",
-        titulo: "Abrigo 03",
-        imagen: "./img/abrigos/03.jpg",
-        categoria: {
-            nombre: "Abrigos",
-            id: "abrigos"
-        },
-        precio: 1000
-    },
-    {
-        id: "abrigo-04",
-        titulo: "Abrigo 04",
-        imagen: "./img/abrigos/04.jpg",
-        categoria: {
-            nombre: "Abrigos",
-            id: "abrigos"
-        },
-        precio: 1000
-    },
-    {
-        id: "abrigo-05",
-        titulo: "Abrigo 05",
-        imagen: "./img/abrigos/05.jpg",
-        categoria: {
-            nombre: "Abrigos",
-            id: "abrigos"
-        },
-        precio: 1000
-    },
-    // Camisetas
-    {
-        id: "camiseta-01",
-        titulo: "Camiseta 01",
-        imagen: "./img/camisetas/01.jpg",
-        categoria: {
-            nombre: "Camisetas",
-            id: "camisetas"
-        },
-        precio: 1000
-    },
-    {
-        id: "camiseta-02",
-        titulo: "Camiseta 02",
-        imagen: "./img/camisetas/02.jpg",
-        categoria: {
-            nombre: "Camisetas",
-            id: "camisetas"
-        },
-        precio: 1000
-    },
-    {
-        id: "camiseta-03",
-        titulo: "Camiseta 03",
-        imagen: "./img/camisetas/03.jpg",
-        categoria: {
-            nombre: "Camisetas",
-            id: "camisetas"
-        },
-        precio: 1000
-    },
-    {
-        id: "camiseta-04",
-        titulo: "Camiseta 04",
-        imagen: "./img/camisetas/04.jpg",
-        categoria: {
-            nombre: "Camisetas",
-            id: "camisetas"
-        },
-        precio: 1000
-    },
-    {
-        id: "camiseta-05",
-        titulo: "Camiseta 05",
-        imagen: "./img/camisetas/05.jpg",
-        categoria: {
-            nombre: "Camisetas",
-            id: "camisetas"
-        },
-        precio: 1000
-    },
-    {
-        id: "camiseta-06",
-        titulo: "Camiseta 06",
-        imagen: "./img/camisetas/06.jpg",
-        categoria: {
-            nombre: "Camisetas",
-            id: "camisetas"
-        },
-        precio: 1000
-    },
-    {
-        id: "camiseta-07",
-        titulo: "Camiseta 07",
-        imagen: "./img/camisetas/07.jpg",
-        categoria: {
-            nombre: "Camisetas",
-            id: "camisetas"
-        },
-        precio: 1000
-    },
-    {
-        id: "camiseta-08",
-        titulo: "Camiseta 08",
-        imagen: "./img/camisetas/08.jpg",
-        categoria: {
-            nombre: "Camisetas",
-            id: "camisetas"
-        },
-        precio: 1000
-    },
-    // Pantalones
-    {
-        id: "pantalon-01",
-        titulo: "Pantalón 01",
-        imagen: "./img/pantalones/01.jpg",
-        categoria: {
-            nombre: "Pantalones",
-            id: "pantalones"
-        },
-        precio: 1000
-    },
-    {
-        id: "pantalon-02",
-        titulo: "Pantalón 02",
-        imagen: "./img/pantalones/02.jpg",
-        categoria: {
-            nombre: "Pantalones",
-            id: "pantalones"
-        },
-        precio: 1000
-    },
-    {
-        id: "pantalon-03",
-        titulo: "Pantalón 03",
-        imagen: "./img/pantalones/03.jpg",
-        categoria: {
-            nombre: "Pantalones",
-            id: "pantalones"
-        },
-        precio: 1000
-    },
-    {
-        id: "pantalon-04",
-        titulo: "Pantalón 04",
-        imagen: "./img/pantalones/04.jpg",
-        categoria: {
-            nombre: "Pantalones",
-            id: "pantalones"
-        },
-        precio: 1000
-    },
-    {
-        id: "pantalon-05",
-        titulo: "Pantalón 05",
-        imagen: "./img/pantalones/05.jpg",
-        categoria: {
-            nombre: "Pantalones",
-            id: "pantalones"
-        },
-        precio: 1000
-    }
-];
+/* DECLARACION DE VARIABLES */
+let carritoLS = localStorage.getItem("carrito")
+carritoLS = JSON.parse(carritoLS)
+const contenedorProductos = document.querySelector(".main__container-articulos_cards")
 
-const contenedorProductos = document.querySelector("#contenedor-productos");
-const botonesCategorias = document.querySelectorAll(".boton-categoria");/* Ponemos ALL porque queremos traernos todos los botones */
-const tituloPrincipal = document.querySelector("#titulo-principal");
-let botonesAgregar = document.querySelectorAll(".producto-agregar");
-const numerito = document.querySelector("#numerito");
+cargarProductos()
 
-// /* Esta funcion rellena todos los productos en el html*/
-function cargarProductos(productosElegidos) {
-    contenedorProductos.innerHTML="";   /* Primero dejamos el contenedor vacio para que cuando se elija una categoria no se dupliquen */
+let contador = 0
+let carrito = []
+const btnAgregar = document.querySelectorAll('.btn.btn-success')
+let cantidadComprar = document.querySelector('#cantidadComprar')
+const productoElegido = document.getElementsByClassName("card")
+const btnVaciarCarrito = document.getElementById('btn-vaciar-carrito')
 
-    productosElegidos.forEach(producto => {
-        const div = document.createElement("div");
-        div.classList.add("producto");
-        div.innerHTML = `
-            <img class="producto-imagen" src="${producto.imagen}" alt="${producto.titulo}">
-            <div class="producto-detalles">
-            <h3 class="producto-titulo">${producto.titulo}</h3>
-            <p class="producto-precio">$${producto.precio}</p>
-            <button class="producto-agregar" id="${producto.id}">Agregar</button>
-            </div>
-        `;
-        contenedorProductos.append(div);
-    })
-    actualizarBotonesAgregar();
+
+/* FIN DECLARACION DE VARIABLES */
+
+/* Funcion que carga los productos al HTML*/
+function cargarProductos() {
+  productos.forEach(producto => {
+    const article = document.createElement("article")
+    article.classList.add("card")
+    article.innerHTML = `
+    <div class="card__header">
+      <small class="card__descuentos">${producto.descuento}</small>
+      <img src="${producto.imagen}" alt="${producto.articulo}">
+    </div>
+    <h2>${producto.articulo} <span class="bold color">$${producto.precio}</span></h2>
+      <button  type="button" class="btn btn-success" id="${producto.id}">Agregar al carrito</button>
+    </article>
+    `
+    contenedorProductos.append(article)
+  })
 }
 
-cargarProductos(productos);
 
-/* Llenamos las categorias con sus items */
-botonesCategorias.forEach(boton => {
-    boton.addEventListener("click", (e) => {    /* Agregamos el even listener para q si cliqueamos en algun boton de las categorias cambie el css y se llene con esa categoria */
-        botonesCategorias.forEach(boton => boton.classList.remove("active"));
-        e.currentTarget.classList.add("active");
-
-        if (e.currentTarget.id != "todos"){
-            const productoCategoria = productos.find(producto => producto.categoria.id === e.currentTarget.id)
-
-            tituloPrincipal.innerText = productoCategoria.categoria.nombre;
-
-            const productosBoton = productos.filter(producto => producto.categoria.id === e.currentTarget.id);
-            cargarProductos(productosBoton);
-        } else{
-            tituloPrincipal.innerText = "Todos los productos";
-            cargarProductos(productos);
+/* Funcion que agrega los productos al carrito */
+for (let i=0; i<productoElegido.length; i++){
+    productoElegido[i].addEventListener('click', (e) =>{
+        if(e.target.classList.contains('btn')){
+            validarProducto(e.target.id)
         }
+        guardarCarritoEnLocalStorage()
     })
-});
-
-
-/* Agregar productos al carrito */
-function actualizarBotonesAgregar() {
-    botonesAgregar = document.querySelectorAll(".producto-agregar");
-
-    botonesAgregar.forEach(boton => {
-        boton.addEventListener("click", agregarAlCarrito);
-    });
-}
-
-let productosEnCarrito;
-let productosEnCarritoLS = localStorage.getItem("productos-en-carrito")
-
-if(productosEnCarritoLS){
-    productosEnCarrito = JSON.parse(productosEnCarritoLS)
-    actualizarNumerito()
-}else{
-    productosEnCarrito = []
 }
 
 
-/* Agregamos los elementos a un array para agregarlos al carrito*/
-function agregarAlCarrito(e) {
-    const idBoton = e.currentTarget.id;
-    const productoAgregado = productos.find(producto => producto.id === idBoton);
+/* Funcion que valida si el producto esta repetido para sumarlo */
+const validarProducto = (id) => {
+  const estaRepetido = carrito.some(producto => producto.id == id)
+  if (!estaRepetido) {
+      const producto = productos.find(producto => producto.id == id)
+      producto.cantidad = 1
+      producto.precioTotal = producto.precioBase
+      carrito.push(producto)
+      mostrarProductoCarrito(producto)
+  } else {
+      // Si el producto está repetido, actualiza cantidad y precioTotal
+      const producto = carrito.find(producto => producto.id == id)
+      producto.cantidad++
+      producto.precioTotal = producto.precioBase * producto.cantidad
 
-    if(productosEnCarrito.some(producto => producto.id === idBoton)) { // some devuelve true o false. Se fija si hay en el carrito un id igual
-        const index = productosEnCarrito.findIndex(producto => producto.id === idBoton);
-        productosEnCarrito[index].cantidad++;
-    } else {
-        productoAgregado.cantidad = 1;
-        productosEnCarrito.push(productoAgregado);
+      const cantidad = document.getElementById(`cantidad${producto.id}`)
+      const precio = document.getElementById(`precio${producto.id}`)
+      cantidad.innerText = `Cantidad: ${producto.cantidad}`
+      precio.innerText = `$ ${producto.precioTotal}\t\t`
+  }
+  actualizarPrecioTotal()
+  guardarCarritoEnLocalStorage()
+}
+
+/* Funcion que muestra el producto en el carrito */
+const mostrarProductoCarrito = (producto) =>{
+    const contenedor = document.getElementById('carrito-contenedor')
+    const div = document.createElement('div')
+    producto.precioBase = producto.precio
+    div.classList.add('productoEnCarrito')
+
+    div.innerHTML=`
+    <p style="white-space: pre"> ${producto.articulo}\t\t</p>
+    <p style="white-space: pre" id=precio${producto.id}>$ ${producto.precio}\t\t</p>
+    <p style="white-space: pre">Descuento: ${producto.descuento}\t\t  </p>
+    <p style="white-space: pre" id=cantidad${producto.id}>Cantidad: ${producto.cantidad}\t\t</p>
+    `
+    contenedor.append(div)
+}
+
+/* Funcion que cambia el numero del carrito en HTML */
+btnAgregar.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    contador++
+    actualizarContador()
+    guardarCarritoEnLocalStorage()
+  })
+})
+const actualizarContador = () => {
+  cantidadComprar.innerText = contador
+}
+
+/* Calculamos el total a pagar */
+const calcularPrecioTotal = () => {
+    let totalPagar = 0
+    for (let i = 0; i < carrito.length; i++) {
+      totalPagar += carrito[i].precioBase * carrito[i].cantidad
     }
-    actualizarNumerito();
-    localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito))        /* ESTA ES LA LINEA PARA GUARDAR TODO EN EL LOCALSTORAGE */
+    return totalPagar
 }
-/* Actualizamos el numero del carrito */
-function actualizarNumerito() {
-    let nuevoNumerito = productosEnCarrito.reduce((acc, producto) => acc + producto.cantidad, 0);
-    numerito.innerText = nuevoNumerito;
+
+/* Funcion para vaciar el carrito */
+btnVaciarCarrito.addEventListener('click', () => {
+    vaciarCarrito()
+    guardarCarritoEnLocalStorage()
+})
+const vaciarCarrito = () => {
+  carrito.forEach(producto => {
+      producto.cantidad = 1
+      producto.precio = producto.precioBase // Restaurar el precio original del producto
+  })
+  carrito = []
+  const contenedorCarrito = document.getElementById('carrito-contenedor')
+  contenedorCarrito.innerHTML = ''
+  actualizarPrecioTotal()
+  contador = 0
+  actualizarContador()
+  guardarCarritoEnLocalStorage()
+}
+
+// Función para actualizar el precio total a pagar
+const actualizarPrecioTotal = () => {
+    const precioTotalCarrito = calcularPrecioTotal()
+    const precioTotalElemento = document.getElementById('precioTotal')
+    precioTotalElemento.innerText = `${precioTotalCarrito}`
+}
+
+// Funcion para almacernar el carrito en el localstorage
+const guardarCarritoEnLocalStorage = () => {
+  localStorage.setItem("carrito", JSON.stringify(carrito))
 }

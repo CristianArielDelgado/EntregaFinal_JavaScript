@@ -1,75 +1,52 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Welcome to Rango jackets"/>
-    <title>Rango Jackets</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>E-commerce</title>
+    <!-- Iconos de Boostrap-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="shortcut icon" href="./assets/images/rangoFavicon.ico" type="image/x-icon">
 </head>
 <body>
-    <header class="header">
-        <section class="header__container">
-            <img src="./assets/images/fondoRango.jpg" alt="rangoLogo" class="imagenLogo" />
-            <h1 class="tituloBienvenida">Bienvenido a Rango Jackets</h1>
-        </section>
-    </header>
 
-    <main class="main">
-        <div class="main__container">
-            <section class="main__container-bienvenida">
-                <h2>Bienvenido/a, gracias por visitarnos. En esta página vas a poder encontrar todas las camperas que están en venta.<br /> <span class="bold">Al finalizar, dale click al carrito de compras.</span></h2>
-            </section>
-
-            <section class="main__container-articulos">
-                <div class="main__container-articulos_cards">
-                    <!-- Articulos cargados mediante JavaScript-->
-                </div>
-            </section>
-        </div>
-
-        <!-- CARRITO MODAL  -->
-        <div class="main__container-ventanaModal" id="carritoModal">
-
-        </div>
-
-    </main>
-
-    <!-- CARRITO MODAL  -->
-    <div class="modal-contenedor">
-        <div class="modal-carrito">
-            <h3>Carrito</h3>
-            <button id="btn-cerrar-carrito"><i class="fas fa-times-circle"></i></button>
-            <div id="carrito-contenedor">
-
+    <div class="wrapper">
+        <aside>
+            <header>
+                <h1 class="logo">E-Commerce</h1>
+            </header>
+            <nav>
+                <ul class="menu">
+                    <li>
+                        <button id="todos" class="boton-menu boton-categoria active"><i class="bi bi-hand-index-thumb-fill"></i>Todos los productos</button>
+                    </li>
+                    <li>
+                        <button id="abrigos" class="boton-menu boton-categoria"><i class="bi bi-hand-index-thumb"></i>Abrigos</button>
+                    </li>
+                    <li>
+                        <button id="camisetas" class="boton-menu boton-categoria"><i class="bi bi-hand-index-thumb"></i>Camisetas</button>
+                    </li>
+                    <li>
+                        <button id="pantalones" class="boton-menu boton-categoria"><i class="bi bi-hand-index-thumb"></i>Pantalones</button>
+                    </li>
+                    <li>
+                        <a class="boton-menu boton-carrito" href="./carrito.html">
+                            <i class="bi bi-cart-fill"></i>Carrito <span id="numerito" class="numerito">0</span></a>
+                    </li>
+                </ul>
+            </nav>
+            <footer>
+                <p class="texto-footer">© 2023 Cristian Delgado</p>
+            </footer>
+        </aside>
+        <main>
+            <h2 id="titulo-principal" class="titulo-principal">Todos los productos</h2>
+            <div id="contenedor-productos" class="contenedor-productos">
+                <!-- Esto se va a rellenar con JS-->
             </div>
-            <p class="precioProducto"><span class="cssPrecioTotal">Precio total: $<span id="precioTotal">0</span></span></p>
-            <button type="button" class="btn btn-danger" id="btn-vaciar-carrito">Vaciar Carrito</button>
-            <!-- <p>Producto</p>
-            <p>Precio</p>
-            <p id=cantidad${producto.id}>Cantidad</p>
-            <button class="btn waves-effect waves-ligth boton-eliminar" value="">X</button> -->
-        </div>
+        </main>
     </div>
-
-
-    <!--    Footer      Footer      Footer      Footer      Footer      Footer      Footer-->
-    <footer class="footer">
-        <section class="footer__container">
-            <small>
-                &copy; 2023 | Proyecto realizado por <span class="bold">CRISTIAN DELGADO</span>.
-            </small>
-        </section>
-        <section class="carritoCompras">
-            <img id="cesta-carrito" src="./assets/images/carritoCompras.png" alt="Carrito de compras" />
-            <p id="cantidadComprar">0</p>
-        </section>
-    </footer>
-
-    <script src="./js/stock.js"></script>
-    <script src="./js/modal.js"></script>
     <script src="./js/main.js"></script>
 </body>
 </html>

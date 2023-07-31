@@ -183,17 +183,11 @@ html{font-size: 62.5%;}*{padding: 0px;margin: 0px;box-sizing: border-box;font-fa
 .modal-carrito .producto-precio {
     padding-top: 10px;
 }
-
-
-
-
-/* DESPUES DE ACA ME PARECE Q NO VA NADA MAS            DESPUES DE ACA ME PARECE Q NO VA NADA MAS           DESPUES DE ACA ME PARECE Q NO VA NADA MAS */
-  .card .card-image .card-title {
+.card .card-image .card-title {
     color: rgb(225, 76, 65);
     position: unset
-  }
-  
-  .productoEnCarrito {
+}
+.productoEnCarrito {
     border-left: 5px solid lightblue;
     border-bottom-left-radius: 3px;
     border-top-left-radius: 3px;
@@ -202,26 +196,22 @@ html{font-size: 62.5%;}*{padding: 0px;margin: 0px;box-sizing: border-box;font-fa
     display: flex;
     justify-content: space-between;
     color: white;
-  }
-  
-  .productoEnCarrito:hover {
+}
+.productoEnCarrito:hover {
     border-left: 5px solid rgb(225, 76, 65);
-  }
-  
-  .boton-eliminar {
+}
+.boton-eliminar {
     background-color: white;
     color: #ff6961;
     border: none;
     font-size: 20px;
-  }
-  
-  .boton-eliminar:hover {
+}
+.boton-eliminar:hover {
     cursor: pointer;
-  }
-  
-  .boton-eliminar:focus {
+}
+.boton-eliminar:focus {
     outline: none;
-  }
+}
 
 
 

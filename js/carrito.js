@@ -11,8 +11,6 @@ const contenedorTotal = document.querySelector("#total")
 const botonComprar = document.querySelector("#carrito-acciones-comprar")
 
 
-
-
 function cargarProductosCarrito () {
     if(productosEnCarrito && productosEnCarrito.length>0 ){
 
@@ -63,20 +61,39 @@ cargarProductosCarrito()
 /* Eliminar cosas del carrito */
 function actualizarBotonesEliminar() {
     botonesEliminar = document.querySelectorAll(".carrito-producto-eliminar");
-
+    
     botonesEliminar.forEach(boton => {
         boton.addEventListener("click", eliminarDelCarrito);
-    });
+    })
 }
 function eliminarDelCarrito(e){
     const idBoton = e.currentTarget.id;
     const index = productosEnCarrito.findIndex(producto => producto.id === idBoton)
+    const nombreProducto = productosEnCarrito[index].titulo;
 
-    productosEnCarrito.splice(index, 1) /* Splice sirve para eliminar desde el index, y queremos q se elimine solo un producto*/
-    cargarProductosCarrito()
-    localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito))
+    Swal.fire({
+        title: '¿Esta seguro en eliminar el producto del carrito?',
+        text: `Va a eliminar: ${nombreProducto}`,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, eliminar',
+        cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        if(result.isConfirmed){
+            // Swal.fire(
+            //     'Eliminado!',
+            //     'El producto ha sido eliminado.',
+            //     'success'
+            // )
+            productosEnCarrito.splice(index, 1) /* Splice sirve para eliminar desde el index, y queremos q se elimine solo un producto*/
+            cargarProductosCarrito()
+            localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito))
+        }
+    })
 }
-
+ 
 /* funcion que vacia todo del carrito */
 botonVaciar.addEventListener("click", vaciarCarrito);
 function vaciarCarrito(){

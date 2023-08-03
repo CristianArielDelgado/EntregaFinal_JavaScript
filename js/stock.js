@@ -7,7 +7,7 @@ const productos =
         "stock": 5,
         "descuento": 20+"% OFF",
         "cantidad": 1,
-        "imagen": "../assets/images/mercaderia/articulo_1.png"
+        "imagen": "./assets/images/mercaderia/articulo_1.png"
     },
 
     {

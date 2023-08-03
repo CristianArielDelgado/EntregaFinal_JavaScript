@@ -82,11 +82,6 @@ function eliminarDelCarrito(e){
         cancelButtonText: 'Cancelar'
     }).then((result) => {
         if(result.isConfirmed){
-            // Swal.fire(
-            //     'Eliminado!',
-            //     'El producto ha sido eliminado.',
-            //     'success'
-            // )
             productosEnCarrito.splice(index, 1) /* Splice sirve para eliminar desde el index, y queremos q se elimine solo un producto*/
             cargarProductosCarrito()
             localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito))
@@ -97,10 +92,32 @@ function eliminarDelCarrito(e){
 /* funcion que vacia todo del carrito */
 botonVaciar.addEventListener("click", vaciarCarrito);
 function vaciarCarrito(){
-    productosEnCarrito.length= 0;
-    localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito))
-    cargarProductosCarrito()
+    
+
+    // ACA PARA ABAJO QUILOMBO
+    Swal.fire({
+        title: '¿Esta seguro en eliminar todo el carrito?',
+        text: 'Una vez eliminado no se va a poder volver a recuperar. Si quiere eliminar un producto en particular lo puede hacer directamente desde el producto a eliminar.',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, eliminar',
+        cancelButtonText: 'Cancelar'
+    }).then((result) => {
+        if(result.isConfirmed){
+            Swal.fire(
+                'Eliminado!',
+                'El carrito ha sido eliminado correctamente.',
+                'success'
+            )
+            productosEnCarrito.length= 0;
+                localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito))
+                cargarProductosCarrito()
+        }
+    })
 }
+
 /* Modificamos el total cada vez q se cargan los productos en el carrito */
 function actualizarTotal () {
     const totalCalculado = productosEnCarrito.reduce((acc, producto) => acc + (producto.precio * producto.cantidad), 0) /* q arranque en 0 */
@@ -112,6 +129,14 @@ function actualizarTotal () {
 /* funcion si usamos el comprar */
 botonComprar.addEventListener("click", comprarCarrito);
 function comprarCarrito(){
+
+    Swal.fire({
+        imageUrl: '../assets/images/fondoRango.jpg',
+        imageHeight: 300,
+        imageAlt: 'Imagen de Rango',
+        title: '¡GRACIAS!',
+        text: 'Su compra se ha registrado con exito.'
+    })
     productosEnCarrito.length= 0;
     localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito))
 

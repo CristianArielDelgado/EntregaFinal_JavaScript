@@ -56,7 +56,7 @@ function agregarAlCarrito(e) {
         const index = productosEnCarrito.findIndex(producto => producto.id === idBoton);
         productosEnCarrito[index].cantidad++;
         Toastify({
-            text: 'Producto agregado al carrito!',
+            text: 'Producto agregado al carrito.',
             duration: 2000,
             gravity: 'bottom',
             position: 'right',
@@ -71,7 +71,7 @@ function agregarAlCarrito(e) {
         actualizarNumerito(); 
         localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
         Toastify({
-            text: 'Producto agregado al carrito!',
+            text: 'Producto agregado al carrito.',
             duration: 2000,
             gravity: 'bottom',
             position: 'right',

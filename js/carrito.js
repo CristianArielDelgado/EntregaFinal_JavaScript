@@ -131,7 +131,7 @@ botonComprar.addEventListener("click", comprarCarrito);
 function comprarCarrito(){
 
     Swal.fire({
-        imageUrl: '../assets/images/fondoRango.jpg',
+        imageUrl: './assets/images/fondoRango.jpg',
         imageHeight: 300,
         imageAlt: 'Imagen de Rango',
         title: '¡GRACIAS!',

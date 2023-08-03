@@ -17,7 +17,7 @@ const productos =
         "stock": 2,
         "descuento": 10+"% OFF",
         "cantidad": 1,
-        "imagen": "../assets/images/mercaderia/articulo_2.png"
+        "imagen": "./assets/images/mercaderia/articulo_2.png"
     },
 
     {
@@ -27,7 +27,7 @@ const productos =
         "stock": 0,
         "descuento": 15+"% OFF",
         "cantidad": 1,
-        "imagen": "../assets/images/mercaderia/articulo_3.png"
+        "imagen": "./assets/images/mercaderia/articulo_3.png"
     },
 
     {
@@ -37,7 +37,7 @@ const productos =
         "stock": 4,
         "descuento": 15+"% OFF",
         "cantidad": 1,
-        "imagen": "../assets/images/mercaderia/articulo_4.png"
+        "imagen": "./assets/images/mercaderia/articulo_4.png"
     },
 
     {
@@ -47,7 +47,7 @@ const productos =
         "stock": 8,
         "descuento": 10+"% OFF",
         "cantidad": 1,
-        "imagen": "../assets/images/mercaderia/articulo_5.png"
+        "imagen": "./assets/images/mercaderia/articulo_5.png"
     },
 
     {
@@ -57,7 +57,7 @@ const productos =
         "stock": 10,
         "descuento": 10+"% OFF",
         "cantidad": 1,
-        "imagen": "../assets/images/mercaderia/articulo_6.png"
+        "imagen": "./assets/images/mercaderia/articulo_6.png"
     },
 
     {
@@ -67,7 +67,7 @@ const productos =
         "stock": 1,
         "descuento": 5+"% OFF",
         "cantidad": 1,
-        "imagen": "../assets/images/mercaderia/articulo_7.png"
+        "imagen": "./assets/images/mercaderia/articulo_7.png"
     },
 
     {
@@ -77,7 +77,7 @@ const productos =
         "stock": 15,
         "descuento": 5+"% OFF",
         "cantidad": 1,
-        "imagen": "../assets/images/mercaderia/articulo_8.png"
+        "imagen": "./assets/images/mercaderia/articulo_8.png"
     },
 
     {
@@ -87,6 +87,6 @@ const productos =
         "stock": 3,
         "descuento": 10+"% OFF",
     "cantidad": 1,
-    "imagen": "../assets/images/mercaderia/articulo_9.png"
+    "imagen": "./assets/images/mercaderia/articulo_9.png"
     }
 ]

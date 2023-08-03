@@ -52,16 +52,38 @@ function agregarAlCarrito(e) {
     const idBoton = e.currentTarget.id;
     const productoAgregado = productos.find(producto => producto.id === idBoton);
 
-    if(productosEnCarrito.some(producto => producto.id === idBoton)) { // some devuelve true o false. Se fija si hay en el carrito un id igual
+    if (productosEnCarrito.some(producto => producto.id === idBoton)) {
         const index = productosEnCarrito.findIndex(producto => producto.id === idBoton);
         productosEnCarrito[index].cantidad++;
+        Toastify({
+            text: 'Producto agregado al carrito!',
+            duration: 2000,
+            gravity: 'bottom',
+            position: 'right',
+            style: {
+                background: 'linear-gradient(to right, #FD8D14, #C51605)',
+                color: 'white'
+            }
+        }).showToast()
     } else {
         productoAgregado.cantidad = 1;
         productosEnCarrito.push(productoAgregado);
+        actualizarNumerito(); 
+        localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
+        Toastify({
+            text: 'Producto agregado al carrito!',
+            duration: 2000,
+            gravity: 'bottom',
+            position: 'right',
+            style: {
+                background: 'linear-gradient(to right, #FD8D14, #C51605)',
+                color: 'white'
+            }
+        }).showToast()
     }
-    actualizarNumerito();
-    localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito))        /* ESTA ES LA LINEA PARA GUARDAR TODO EN EL LOCALSTORAGE */
 }
+
+
 /* Actualizamos el numero del carrito */
 function actualizarNumerito() {
     let nuevoNumerito = productosEnCarrito.reduce((acc, producto) => acc + producto.cantidad, 0);

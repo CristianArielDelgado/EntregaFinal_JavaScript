@@ -137,7 +137,7 @@ function comprarCarrito() {
         // Verificar si el usuario hizo clic en el botón "OK"
         if (result.isConfirmed) {
             // Redirigir al usuario a la página de pago
-            window.location.href = '../pago.html';
+            window.location.href = './pago.html';
         }
     })
     

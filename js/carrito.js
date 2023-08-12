@@ -93,8 +93,6 @@ function eliminarDelCarrito(e){
 botonVaciar.addEventListener("click", vaciarCarrito);
 function vaciarCarrito(){
     
-
-    // ACA PARA ABAJO QUILOMBO
     Swal.fire({
         title: '¿Esta seguro en eliminar todo el carrito?',
         text: 'Una vez eliminado no se va a poder volver a recuperar. Si quiere eliminar un producto en particular lo puede hacer directamente desde el producto a eliminar.',
@@ -128,15 +126,21 @@ function actualizarTotal () {
 
 /* funcion si usamos el comprar */
 botonComprar.addEventListener("click", comprarCarrito);
-function comprarCarrito(){
-
+function comprarCarrito() {
     Swal.fire({
         imageUrl: './assets/images/fondoRango.jpg',
         imageHeight: 300,
         imageAlt: 'Imagen de Rango',
         title: '¡GRACIAS!',
-        text: 'Su compra se ha registrado con exito.'
+        text: 'Su compra se ha registrado con éxito.'
+    }).then((result) => {
+        // Verificar si el usuario hizo clic en el botón "OK"
+        if (result.isConfirmed) {
+            // Redirigir al usuario a la página de pago
+            window.location.href = '../pago.html';
+        }
     })
+    
     productosEnCarrito.length= 0;
     localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito))
 
